@@ -25,7 +25,9 @@ def beginnerMode():
     for i in range (10):
         row = rand.choice(board[1:])
         col = rand.choice(row[1:])
-        board=rand.choice[row:col:]
+        #board=rand.choice[row:col:]
+        if board[row][col]==" ":
+            rand.randint()
         
         print(col)
         print(row)
@@ -39,10 +41,11 @@ print("The numbers on the board represent how many bombs are adjacent to a squar
 "For example, if a square has a '3' on it, then there are 3 bombs next to that square.",
 " The bombs could be above, below, right left, or diagonal to the square. Avoid all",
 "the bombs and expose all the empty spaces to win Minesweeper.")
-gamemode=input("Are you ready?- ")
-while gamemode != "yes":
-    gamemode=input("Are you ready?- ")
+gamemode=input("Are you ready?- ").lower()
+while gamemode != ("yes"):
+    gamemode=input("Are you ready?- ").lower()
 beginnerMode()
+
 
 
 
