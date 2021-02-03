@@ -12,7 +12,10 @@ def addMark(m,r,c,b):
     return False
 
 # Beginner Game Mode
+
 def beginnerMode():
+    #^^^^^^^^^^^^^^^
+    #Going to to this into a class later
     board=[
         [" ","A","B","C","D","E","F","G","H","I"],
         ["1"," "," "," "," "," "," "," "," "," "],
@@ -25,6 +28,7 @@ def beginnerMode():
         ["8"," "," "," "," "," "," "," "," "," "],
         ["9"," "," "," "," "," "," "," "," "," "]]
     Mine="M"
+    numberList=[1,2,3,4,5]
     def printBoard(b):
         for row in range(len(b)):
             for col in range(len(b[row])):
@@ -39,10 +43,20 @@ def beginnerMode():
         row = rand.randint(1,9)
         col = rand.randint(1,9)
         addMark(Mine,row,col,board)
-        print(col)
-        print(row)
+        #print(col)
+        #print(row)
     printBoard(board)
     newboard=[]
+    #secure_random = rand.SystemRandom()
+    #res = [int(sub.split('.')[1]) for sub in numberList]
+    for i in range (10):
+        row = rand.randint(1,9)
+        col = rand.randint(1,9)
+        addMark(rand.choice(numberList),row,col,board)
+    printBoard(board)
+        #print(col)
+        #print(row)
+    
     
 
 
@@ -59,6 +73,11 @@ print("The 0's on the borad show there are no bomb around that square.\n")
 gamemode=input("Are you ready?- ").lower()
 while gamemode != "yes":
     gamemode=input("Are you ready?- ").lower()
+
+while beginnerMode!="You Have Won" or "You have Lost":
+    
+    columnsAndRowsInput=input("Enter row and column number to select a cell, Example (1 1)")
+
 beginnerMode()
 
 
