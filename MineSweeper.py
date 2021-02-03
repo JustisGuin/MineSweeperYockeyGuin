@@ -36,18 +36,9 @@ def beginnerMode():
                       print("-"*38)
         print()
     for i in range (10):
-<<<<<<< HEAD
         row = rand.randint(1,9)
         col = rand.randint(1,9)
         addMark(Mine,row,col,board)
-=======
-        row = rand.choice(board[1:])
-        col = rand.choice(row[1:])
-        #board=rand.choice[row:col:]
-        if board[row][col]==" ":
-            rand.randint()
-        
->>>>>>> c1c77afed67f2100a34f89ba7e04b68419eb0151
         print(col)
         print(row)
     printBoard(board)
@@ -64,20 +55,9 @@ if howToPlay == "yes":
     "\nnext to that square. The bombs could be above, below, right left, or",
     "\ndiagonal to the square. Avoid all the bombs and expose all the empty",
     "\nspaces to win Minesweeper.\n")
-
-<<<<<<< HEAD
 print("The 0's on the borad show there are no bomb around that square.\n")
 gamemode=input("Are you ready?- ").lower()
 while gamemode != "yes":
-=======
-print("Welcome to Minesweeper")
-print("The numbers on the board represent how many bombs are adjacent to a square.",
-"For example, if a square has a '3' on it, then there are 3 bombs next to that square.",
-" The bombs could be above, below, right left, or diagonal to the square. Avoid all",
-"the bombs and expose all the empty spaces to win Minesweeper.")
-gamemode=input("Are you ready?- ").lower()
-while gamemode != ("yes"):
->>>>>>> c1c77afed67f2100a34f89ba7e04b68419eb0151
     gamemode=input("Are you ready?- ").lower()
 beginnerMode()
 
