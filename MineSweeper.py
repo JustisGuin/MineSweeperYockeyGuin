@@ -1,4 +1,16 @@
 import random as rand
+
+
+#----- FUNCTIONS -----
+
+#randomly addes the mine in
+def addMark(m,r,c,b):
+    #if the space is blank, add that mine
+    if b[r][c]==" ":
+        b[r][c]=m
+        return True
+    return False
+
 # Beginner Game Mode
 def beginnerMode():
     board=[
@@ -12,6 +24,7 @@ def beginnerMode():
         ["7"," "," "," "," "," "," "," "," "," "],
         ["8"," "," "," "," "," "," "," "," "," "],
         ["9"," "," "," "," "," "," "," "," "," "]]
+    Mine="M"
     def printBoard(b):
         for row in range(len(b)):
             for col in range(len(b[row])):
@@ -23,25 +36,30 @@ def beginnerMode():
                       print("-"*38)
         print()
     for i in range (10):
-        row = rand.choice(board[1:])
-        col = rand.choice(row[1:])
-        board=rand.choice[row:col:]
-        
+        row = rand.randint(1,9)
+        col = rand.randint(1,9)
+        addMark(Mine,row,col,board)
         print(col)
         print(row)
     printBoard(board)
+    newboard=[]
     
 
 
+#----- RUNNING CODE -----
+print("Welcome to Minesweeper\n")
+howToPlay=input("Do you want to see the instructions to play?- ").lower()
+if howToPlay == "yes":
+    print("\nThe numbers on the board represent how many bombs are adjacent to a",
+    "\nsquare. For example, if a square has a '3' on it, then there are 3 bombs",
+    "\nnext to that square. The bombs could be above, below, right left, or",
+    "\ndiagonal to the square. Avoid all the bombs and expose all the empty",
+    "\nspaces to win Minesweeper.\n")
 
-print("Welcome to Minesweeper")
-print("The numbers on the board represent how many bombs are adjacent to a square.",
-"For example, if a square has a '3' on it, then there are 3 bombs next to that square.",
-" The bombs could be above, below, right left, or diagonal to the square. Avoid all",
-"the bombs and expose all the empty spaces to win Minesweeper.")
-gamemode=input("Are you ready?- ")
+print("The 0's on the borad show there are no bomb around that square.\n")
+gamemode=input("Are you ready?- ").lower()
 while gamemode != "yes":
-    gamemode=input("Are you ready?- ")
+    gamemode=input("Are you ready?- ").lower()
 beginnerMode()
 
 
