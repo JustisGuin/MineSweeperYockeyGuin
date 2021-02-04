@@ -13,10 +13,10 @@ def addMark(m,r,c,b):
 
 # Beginner Game Mode
 
-def beginnerMode():
+
     #^^^^^^^^^^^^^^^
     #Going to to this into a class later
-    board=[
+board=[
         [" ","A","B","C","D","E","F","G","H","I"],
         ["1"," "," "," "," "," "," "," "," "," "],
         ["2"," "," "," "," "," "," "," "," "," "],
@@ -27,15 +27,15 @@ def beginnerMode():
         ["7"," "," "," "," "," "," "," "," "," "],
         ["8"," "," "," "," "," "," "," "," "," "],
         ["9"," "," "," "," "," "," "," "," "," "]]
-    Mine="M"
-    numberList=[1,2,3,4,5]
-    def printBoard(b):
-        for row in range(len(b)):
-            for col in range(len(b[row])):
-                if col !=(len(b[row])-1):
-                      print(b[row][col],end=" | ")
-                else:
-                      print(b[row][col],end="\n")
+Mine="M"
+numberList=[1,2,3,4,5]
+def printBoard(b):
+    for row in range(len(b)):
+        for col in range(len(b[row])):
+            if col !=(len(b[row])-1):
+                    print(b[row][col],end=" | ")
+            else:
+                print(b[row][col],end="\n")
             if row !=(len(b)-1):
                       print("-"*38)
         print()
@@ -49,10 +49,10 @@ def beginnerMode():
     newboard=[]
     #secure_random = rand.SystemRandom()
     #res = [int(sub.split('.')[1]) for sub in numberList]
-    for i in range (10):
-        row = rand.randint(1,9)
-        col = rand.randint(1,9)
-        addMark(rand.choice(numberList),row,col,board)
+for i in range (10):
+    row = rand.randint(1,9)
+    col = rand.randint(1,9)
+    addMark(rand.choice(numberList),row,col,board)
     printBoard(board)
         #print(col)
         #print(row)
@@ -73,15 +73,35 @@ print("The 0's on the borad show there are no bomb around that square.\n")
 gamemode=input("Are you ready?- ").lower()
 while gamemode != "yes":
     gamemode=input("Are you ready?- ").lower()
-
-while beginnerMode!="You Have Won" or "You have Lost":
+board=[
+        [" ","A","B","C","D","E","F","G","H","I"],
+        ["1"," "," "," "," "," "," "," "," "," "],
+        ["2"," "," "," "," "," "," "," "," "," "],
+        ["3"," "," "," "," "," "," "," "," "," "],
+        ["4"," "," "," "," "," "," "," "," "," "],
+        ["5"," "," "," "," "," "," "," "," "," "],
+        ["6"," "," "," "," "," "," "," "," "," "],
+        ["7"," "," "," "," "," "," "," "," "," "],
+        ["8"," "," "," "," "," "," "," "," "," "],
+        ["9"," "," "," "," "," "," "," "," "," "]]
+Mine="M"
+while Mine!="Q":
+     correctInput = False
+     while not correctInput:
+          print()
+          row=int(input("Which row? "))-1
+          col=int(input("Which col? "))-1
+          print()
+          #check to see if the ui is in the actual board
+          if not((0<=row<=2) and (0<=col<=2)):
+               print("The row and column are not correct")
+          #try to add a mark, and if you do, this is true.....               
+          elif not(addMark(Mine,row,col,board)):
+               print("That space was already taken")
+          else:
+               correctInput=True
+     printBoard(board)
     
-    columnsAndRowsInput=input("Enter row and column number to select a cell, Example (1 1)")
-
-beginnerMode()
-
-
-
 
 
 
