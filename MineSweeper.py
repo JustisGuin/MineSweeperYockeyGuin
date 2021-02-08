@@ -88,14 +88,5 @@ while Mine!="Q":
     
 
 
-"""
-"blash blash -blash 
-
-This is a test
-"""
 
 
-""" this is another test"""
-
-"gsdd"
-"HELLO"
