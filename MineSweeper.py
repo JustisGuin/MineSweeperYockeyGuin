@@ -92,6 +92,7 @@ def Flags():
 
 
 
+<<<<<<< HEAD
 """
 This will help with the algoritm to check 
 Cell-->Current Cell (row, col) 
@@ -106,3 +107,6 @@ Cell-->Current Cell (row, col)
     
 
 """
+=======
+
+>>>>>>> cdbf3d39bd97982472889cb0a9a1b7d71857c30c
