@@ -11,11 +11,6 @@ def addMark(m,r,c,b):
         return True
     return False
 
-# Beginner Game Mode
-
-
-    #^^^^^^^^^^^^^^^
-    #Going to to this into a class later
 board=[
         [" ","A","B","C","D","E","F","G","H","I"],
         ["1"," "," "," "," "," "," "," "," "," "],
@@ -30,30 +25,29 @@ board=[
 Mine="M"
 numberList=[1,2,3,4,5]
 def printBoard(b):
-    for row in range(len(b)):
-        for col in range(len(b[row])):
-            if col !=(len(b[row])-1):
-                    print(b[row][col],end=" | ")
-            else:
-                print(b[row][col],end="\n")
+        for row in range(len(b)):
+            for col in range(len(b[row])):
+                if col !=(len(b[row])-1):
+                      print(b[row][col],end=" | ")
+                else:
+                      print(b[row][col],end="\n")
             if row !=(len(b)-1):
                       print("-"*38)
         print()
-    for i in range (10):
-        row = rand.randint(1,9)
-        col = rand.randint(1,9)
-        addMark(Mine,row,col,board)
+        for i in range (10):
+            row = rand.randint(1,9)
+            col = rand.randint(1,9)
+            addMark(Mine,row,col,board)
         #print(col)
         #print(row)
-    printBoard(board)
-    newboard=[]
+
+        newboard=[]
     #secure_random = rand.SystemRandom()
     #res = [int(sub.split('.')[1]) for sub in numberList]
 for i in range (10):
     row = rand.randint(1,9)
     col = rand.randint(1,9)
     addMark(rand.choice(numberList),row,col,board)
-    printBoard(board)
         #print(col)
         #print(row)
     
@@ -68,22 +62,12 @@ if howToPlay == "yes":
     "\nsquare. For example, if a square has a '3' on it, then there are 3 bombs",
     "\nnext to that square. The bombs could be above, below, right left, or",
     "\ndiagonal to the square. Avoid all the bombs and expose all the empty",
-    "\nspaces to win Minesweeper.\n")
-print("The 0's on the borad show there are no bomb around that square.\n")
+    "\nspaces to win Minesweeper.\n"
+    "\The 0's on the board show there are no bomb around that square.")
 gamemode=input("Are you ready?- ").lower()
 while gamemode != "yes":
     gamemode=input("Are you ready?- ").lower()
-board=[
-        [" ","A","B","C","D","E","F","G","H","I"],
-        ["1"," "," "," "," "," "," "," "," "," "],
-        ["2"," "," "," "," "," "," "," "," "," "],
-        ["3"," "," "," "," "," "," "," "," "," "],
-        ["4"," "," "," "," "," "," "," "," "," "],
-        ["5"," "," "," "," "," "," "," "," "," "],
-        ["6"," "," "," "," "," "," "," "," "," "],
-        ["7"," "," "," "," "," "," "," "," "," "],
-        ["8"," "," "," "," "," "," "," "," "," "],
-        ["9"," "," "," "," "," "," "," "," "," "]]
+
 Mine="M"
 while Mine!="Q":
      correctInput = False
@@ -100,9 +84,13 @@ while Mine!="Q":
                print("That space was already taken")
           else:
                correctInput=True
-     printBoard(board)
+     
     
 
 
+"""
+"blash blash -blash 
 
+This is a test
+"""
 
