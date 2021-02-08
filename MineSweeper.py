@@ -94,8 +94,5 @@ while Mine!="Q":
 This is a test
 """
 
-<<<<<<< HEAD
 
-=======
 """ this is another test"""
->>>>>>> f03777e939ab7801ee381a410560729e8a5f2eff
