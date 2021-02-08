@@ -97,4 +97,8 @@ This is a test
 
 """ this is another test"""
 
+<<<<<<< HEAD
 "gsdd"
+=======
+"HELLO"
+>>>>>>> 7ff9dccdf43944059f3f63653937b379c89dff84
