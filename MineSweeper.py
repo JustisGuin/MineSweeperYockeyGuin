@@ -12,7 +12,7 @@ def addMark(m,r,c,b):
     return False
 
 board=[
-        [" ","A","B","C","D","E","F","G","H","I"],
+        [" ","1","2","3","4","5","6","7","8","9"],
         ["1"," "," "," "," "," "," "," "," "," "],
         ["2"," "," "," "," "," "," "," "," "," "],
         ["3"," "," "," "," "," "," "," "," "," "],
@@ -73,6 +73,7 @@ while Mine!="Q":
      correctInput = False
      while not correctInput:
           print()
+          printBoard(board)
           row=int(input("Which row? "))-1
           col=int(input("Which col? "))-1
           print()
@@ -85,17 +86,23 @@ while Mine!="Q":
           else:
                correctInput=True
      
+Flags=10
+def Flags():
+    flag=int(input("Where would you like to place the flag(row,col) (Example 1,5)"))
+
+
+
+"""
+This will help with the algoritm to check 
+Cell-->Current Cell (row, col) 
+        N -->  North        (row-1, col) 
+        S -->  South        (row+1, col) 
+        E -->  East         (row, col+1) 
+        W -->  West            (row, col-1) 
+        N.E--> North-East   (row-1, col+1) 
+        N.W--> North-West   (row-1, col-1) 
+        S.E--> South-East   (row+1, col+1) 
+        S.W--> South-West   (row+1, col-1)
     
 
-
 """
-"blash blash -blash 
-
-This is a test
-"""
-
-
-""" this is another test"""
-
-"gsdd"
-"HELLO"
