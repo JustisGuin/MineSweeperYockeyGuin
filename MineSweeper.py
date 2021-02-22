@@ -12,7 +12,7 @@ def addMark(m,r,c,b):
     return False
 
 board=[
-        [" ","1","2","3","4","5","6","7","8","9"],
+        ["+","1","2","3","4","5","6","7","8","9"],
         ["1"," "," "," "," "," "," "," "," "," "],
         ["2"," "," "," "," "," "," "," "," "," "],
         ["3"," "," "," "," "," "," "," "," "," "],
@@ -68,31 +68,41 @@ gamemode=input("Are you ready?- ").lower()
 while gamemode != "yes":
     gamemode=input("Are you ready?- ").lower()
 
-Mine="M"
+
+
+#flag emoji https://emojipedia.org/triangular-flag/
+#🚩
+Flags="🚩"
 while Mine!="Q":
-     correctInput = False
-     while not correctInput:
-          print()
-          printBoard(board)
-          row=int(input("Which row? "))-1
-          col=int(input("Which col? "))-1
-          print()
-          #check to see if the ui is in the actual board
-          if not((0<=row<=2) and (0<=col<=2)):
-               print("The row and column are not correct")
-          #try to add a mark, and if you do, this is true.....               
-          elif not(addMark(Mine,row,col,board)):
-               print("That space was already taken")
-          else:
-               correctInput=True
+    correctInput = False
+    #while not correctInput:
+    print()
+    printBoard(board)
+    #Remeber that you need to do action if statments do if action == ui flags then create a if statment
+    #do this with flag, col, row
+    row=int(input("Which row? "))-1
+    col=int(input("Which col? "))-1
+    #action=input("What action would you like to do?").lower()
+    #if action=="flag":
+        #addMark(Flags,row,col,board)
+        #print updated board make this into a class 
+    #if action=="step":
+        #this is where the algo for checking for mine goes
+
+    if not((0<=row<=9) and (0<=col<=9)):
+        print("The row and column are not correct")
+    #try to add a mark, and if you do, this is true.....
+    elif board[row][col] =="M":
+        print("Game Over")
+        break               
+    elif not(addMark(Mine,row,col,board)):
+        print("That space was already taken")
+    
+    else:
+        correctInput=True
+               
      
-Flags=10
-def Flags():
-    flag=int(input("Where would you like to place the flag(row,col) (Example 1,5)"))
 
-
-
-<<<<<<< HEAD
 """
 This will help with the algoritm to check 
 Cell-->Current Cell (row, col) 
@@ -107,6 +117,3 @@ Cell-->Current Cell (row, col)
     
 
 """
-=======
-
->>>>>>> cdbf3d39bd97982472889cb0a9a1b7d71857c30c
