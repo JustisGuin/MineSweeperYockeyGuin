@@ -84,25 +84,52 @@ gamemode=input("Are you ready?- ").lower()
 while gamemode != "yes":
     gamemode=input("Are you ready?- ").lower()
 
-Mine="M"
+
+
+#flag emoji https://emojipedia.org/triangular-flag/
+#🚩
+Flags="🚩"
 while Mine!="Q":
-     correctInput = False
-     while not correctInput:
-          print()
-          row=int(input("Which row? "))-1
-          col=int(input("Which col? "))-1
-          print()
-          #check to see if the ui is in the actual board
-          if not((0<=row<=2) and (0<=col<=2)):
-               print("The row and column are not correct")
-          #try to add a mark, and if you do, this is true.....               
-          elif not(addMark(Mine,row,col,board)):
-               print("That space was already taken")
-          else:
-               correctInput=True
+    correctInput = False
+    #while not correctInput:
+    print()
+    printBoard(board)
+    #Remeber that you need to do action if statments do if action == ui flags then create a if statment
+    #do this with flag, col, row
+    row=int(input("Which row? "))-1
+    col=int(input("Which col? "))-1
+    #action=input("What action would you like to do?").lower()
+    #if action=="flag":
+        #addMark(Flags,row,col,board)
+        #print updated board make this into a class 
+    #if action=="step":
+        #this is where the algo for checking for mine goes
+
+    if not((0<=row<=9) and (0<=col<=9)):
+        print("The row and column are not correct")
+    #try to add a mark, and if you do, this is true.....
+    elif board[row][col] =="M":
+        print("Game Over")
+        break               
+    elif not(addMark(Mine,row,col,board)):
+        print("That space was already taken")
+    
+    else:
+        correctInput=True
+               
      
+
+"""
+This will help with the algoritm to check 
+Cell-->Current Cell (row, col) 
+        N -->  North        (row-1, col) 
+        S -->  South        (row+1, col) 
+        E -->  East         (row, col+1) 
+        W -->  West            (row, col-1) 
+        N.E--> North-East   (row-1, col+1) 
+        N.W--> North-West   (row-1, col-1) 
+        S.E--> South-East   (row+1, col+1) 
+        S.W--> South-West   (row+1, col-1)
     
 
-
-
-
+"""
