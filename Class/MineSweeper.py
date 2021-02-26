@@ -2,14 +2,13 @@ import random as rand
 
 
 #----- FUNCTIONS -----
-
-#randomly addes the mine in
 def addMark(m,r,c,b):
     #if the space is blank, add that mine
     if b[r][c]==" ":
         b[r][c]=m
         return True
     return False
+#randomly addes the mine in
 
 board=[
         ["+","1","2","3","4","5","6","7","8","9"],
@@ -24,7 +23,7 @@ board=[
         ["9"," "," "," "," "," "," "," "," "," "]]
 Mine="M"
 numberList=[1,2,3,4,5]
-def printBoard(b):
+def printBoard(b):  #todo explain print board in comments 
         for row in range(len(b)):
             for col in range(len(b[row])):
                 if col !=(len(b[row])-1):
@@ -34,21 +33,21 @@ def printBoard(b):
             if row !=(len(b)-1):
                       print("-"*38)
         print()
-        for i in range (10):
-            row = rand.randint(1,9)
-            col = rand.randint(1,9)
-            addMark(Mine,row,col,board)
-        #print(col)
-        #print(row)
 
-        newboard=[]
-    #secure_random = rand.SystemRandom()
-    #res = [int(sub.split('.')[1]) for sub in numberList]
+
 for i in range (10):
     row = rand.randint(1,9)
     col = rand.randint(1,9)
-    addMark(rand.choice(numberList),row,col,board)
+    addMark(Mine,row,col,board)
         #print(col)
+        #print(row)
+    #secure_random = rand.SystemRandom()
+    #res = [int(sub.split('.')[1]) for sub in numberList]
+"""for i in range (10):
+    row = rand.randint(1,9)
+    col = rand.randint(1,9)
+    addMark(rand.choice(numberList),row,col,board)
+        #print(col)"""
         #print(row)
     
 
@@ -74,10 +73,12 @@ if howToPlay == "yes":
     "\nnext to that square. The bombs could be above, below, right left, or",
     "\ndiagonal to the square. Avoid all the bombs and expose all the empty",
     "\nspaces to win Minesweeper.\n"
-    "\The 0's on the board show there are no bomb around that square.")
+    "\The 0's on the board show there are no bomb around that square."
+    "\You will pick either Flag or Step")
 gamemode=input("Are you ready?- ").lower()
 while gamemode != "yes":
     gamemode=input("Are you ready?- ").lower()
+
 
 
 
@@ -111,8 +112,7 @@ while Mine!="Q":
     
     else:
         correctInput=True
-               
-     
+
 
 """
 This will help with the algoritm to check 
