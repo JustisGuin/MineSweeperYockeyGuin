@@ -65,6 +65,95 @@ def title():
     print(' ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀        ▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀       ▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀            ▀▀▀▀▀▀▀▀▀▀▀  ▀         ▀ ')
 title()
 
+Mine="M"
+numberList=[1,2,3,4,5]
+def printBoard(b):
+        for row in range(len(b)):
+            for col in range(len(b[row])):
+                if col !=(len(b[row])-1):
+                      print(b[row][col],end=" | ")
+                else:
+                      print(b[row][col],end="\n")
+            if row !=(len(b)-1):
+                      print("-"*38)
+        print()
+        for i in range (10):
+            n=9
+            row = rand.randint(1,9)
+            col = rand.randint(1,9)
+            addMark(Mine,row,col,board)
+            # N -->  North        (row-1, col)
+            if row > 0:
+                #Mine(row-1, col)
+                #addMark("O",row-1,col,board)
+                if board[row-1][col] in [" ","A","B","C","D","E","F","G","H","I","M"]:
+                    board[row-1][col]=str(1)
+                else:
+                    board[row-1][col]=str(int(board[row-1][col])+1)
+            # S -->  South        (row+1, col)           
+            if row < n-1:
+                #Mine(row+1, col)
+                #addMark("O",row+1,col,board)
+                if board[row-1][col] in [" ","A","B","C","D","E","F","G","H","I","M"]:
+                    board[row-1][col]=str(1)
+                else:
+                    board[row-1][col]=str(int(board[row-1][col])+1)
+            # W -->  West         (row, col-1)          
+            if col > 0:
+                #Mine(row, col-1)
+                #addMark("O",row,col-1,board)
+                if board[row-1][col] in [" ","A","B","C","D","E","F","G","H","I","M"]:
+                    board[row-1][col]=str(1)
+                else:
+                    board[row-1][col]=str(int(board[row-1][col])+1)
+            # E -->  East         (row, col+1)     
+            if col < n-1:
+                #Mine(row, col+1)
+               # addMark("O",row,col+1,board) 
+                if board[row-1][col] in [" ","A","B","C","D","E","F","G","H","I","M"]:
+                    board[row-1][col]=str(1)
+                else:
+                    board[row-1][col]=str(int(board[row-1][col])+1)   
+            # N.W--> North-West   (row-1, col-1)
+            
+            if row > 0 and col > 0:
+                #Mine(row-1, col-1)
+                #addMark("O",row-1,col-1,board)
+            # N.W--> North-West   (row-1, col-1) 
+                if board[row-1][col] in [" ","A","B","C","D","E","F","G","H","I","M"]:
+                    board[row-1][col]=str(1)
+                else:
+                    board[row-1][col]=str(int(board[row-1][col])+1)
+            if row > 0 and col < n-1:
+                #Mine(row-1, col+1)
+              #  addMark("O",row-1,col+1,board)
+            # S.W--> South-West   (row+1, col-1) 
+                if board[row-1][col] in [" ","A","B","C","D","E","F","G","H","I","M"]:
+                    board[row-1][col]=str(1)
+                else:
+                    board[row-1][col]=str(int(board[row-1][col])+1) 
+            if row < n-1 and col > 0:
+                #Mine(row+1, col-1)
+               # addMark("O",row+1,col-1,board)
+            # S.E--> South-East   (row+1, col+1)   
+                if board[row-1][col] in [" ","A","B","C","D","E","F","G","H","I","M"]:
+                    board[row-1][col]=str(1)
+                else:
+                    board[row-1][col]=str(int(board[row-1][col])+1)          
+            if row < n-1 and col < n-1:
+                #Mine(row+1, col+1)
+              #  addMark("O",row+1,col+1,board) 
+                if board[row-1][col] in [" ","A","B","C","D","E","F","G","H","I","M"]:
+                    board[row-1][col]=str(1)
+                else:
+                    board[row-1][col]=str(int(board[row-1][col])+1)
+        #print(col)
+        #print(row)
+        newboard=[]
+    #secure_random = rand.SystemRandom()
+    #res = [int(sub.split('.')[1]) for sub in numberList]
+#for when you need to print flags
+#print("Flags- {}".format(int(numOfFlags)))
 #----- RUNNING CODE -----
 howToPlay=input("Do you want to see the instructions to play?- ").lower()
 if howToPlay == "yes":
