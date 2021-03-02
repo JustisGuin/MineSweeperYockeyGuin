@@ -74,10 +74,10 @@ def printBoard(b):
             row = rand.randint(1,9)
             col = rand.randint(1,9)
             addMark(Mine,row,col,board)
-            # N -->  North        (row-1, col)
+             # N -->  North        (row-1, col)
             if row > 0:
                 #Mine(row-1, col)
-                #addMark("O",row-1,col,board)
+                #addMark("O",row-1,col,board)      #This whole thing is the algoritm to place the numbers bye the mine but it is not fully working because it is adding the numbers up 
                 if board[row-1][col] in [" ","A","B","C","D","E","F","G","H","I","M"]:
                     board[row-1][col]=str(1)
                 else:
@@ -86,64 +86,63 @@ def printBoard(b):
             if row < n-1:
                 #Mine(row+1, col)
                 #addMark("O",row+1,col,board)
-                if board[row+1][col] in [" ","A","B","C","D","E","F","G","H","I","M"]:
-                    board[row+1][col]=str(1)
+                if board[row-1][col] in [" ","A","B","C","D","E","F","G","H","I","M"]:
+                    board[row-1][col]=str(1)
                 else:
-                    board[row+1][col]=str(int(board[row+1][col])+1)
+                    board[row-1][col]=str(int(board[row-1][col])+1)
             # W -->  West         (row, col-1)          
             if col > 0:
                 #Mine(row, col-1)
                 #addMark("O",row,col-1,board)
-                if board[row][col-1] in [" ","A","B","C","D","E","F","G","H","I","M"]:
-                    board[row][col-1]=str(1)
+                if board[row-1][col] in [" ","A","B","C","D","E","F","G","H","I","M"]:
+                    board[row-1][col]=str(1)
                 else:
-                    board[row][col-1]=str(int(board[row][col-1])+1)
+                    board[row-1][col]=str(int(board[row-1][col])+1)
             # E -->  East         (row, col+1)     
             if col < n-1:
                 #Mine(row, col+1)
-               # addMark("O",row,col+1,board)
-               if board[row][col+1] in [" ","A","B","C","D","E","F","G","H","I","M"]:
-                    board[row][col+1]=str(1)
-               else:
-                    board[row][col+1]=str(int(board[row][col+1])+1)
-#  this does not work "IndexError: list index out of range" 
-"""
-            # N.W--> North-East   (row-1, col+1)
+               # addMark("O",row,col+1,board) 
+                if board[row-1][col] in [" ","A","B","C","D","E","F","G","H","I","M"]:
+                    board[row-1][col]=str(1)
+                else:
+                    board[row-1][col]=str(int(board[row-1][col])+1)   
+            # N.W--> North-West   (row-1, col-1)
+             
             if row > 0 and col > 0:
                 #Mine(row-1, col-1)
                 #addMark("O",row-1,col-1,board)
-                if board[row-1][col+1] in [" ","A","B","C","D","E","F","G","H","I","M"]:
-                    board[row-1][col+1]=str(1)
-                else:
-                    board[row-1][col+1]=str(int(board[row-1][col+1])+1)
             # N.W--> North-West   (row-1, col-1) 
+                if board[row-1][col] in [" ","A","B","C","D","E","F","G","H","I","M"]:
+                    board[row-1][col]=str(1)
+                else:
+                    board[row-1][col]=str(int(board[row-1][col])+1)
             if row > 0 and col < n-1:
                 #Mine(row-1, col+1)
               #  addMark("O",row-1,col+1,board)
-              if board[row-1][col-1] in [" ","A","B","C","D","E","F","G","H","I","M"]:
-                    board[row-1][col-1]=str(1)
-              else:
-                    board[row-1][col-1]=str(int(board[row-1][col-1])+1)
-            # S.W--> South-West   (row+1, col-1)  
+            # S.W--> South-West   (row+1, col-1) 
+                if board[row-1][col] in [" ","A","B","C","D","E","F","G","H","I","M"]:
+                    board[row-1][col]=str(1)
+                else:
+                    board[row-1][col]=str(int(board[row-1][col])+1) 
             if row < n-1 and col > 0:
                 #Mine(row+1, col-1)
                # addMark("O",row+1,col-1,board)
-               if board[row+1][col-1] in [" ","A","B","C","D","E","F","G","H","I","M"]:
-                    board[row+1][col-1]=str(1)
-               else:
-                    board[row+1][col-1]=str(int(board[row+1][col-1])+1)
-            # S.E--> South-East   (row+1, col+1)             
+            # S.E--> South-East   (row+1, col+1)   
+                if board[row-1][col] in [" ","A","B","C","D","E","F","G","H","I","M"]:
+                    board[row-1][col]=str(1)
+                else:
+                    board[row-1][col]=str(int(board[row-1][col])+1)          
             if row < n-1 and col < n-1:
                 #Mine(row+1, col+1)
-              #  addMark("O",row+1,col+1,board)
-              if board[row+1][col+1] in [" ","A","B","C","D","E","F","G","H","I","M"]:
-                    board[row+1][col+1]=str(1)
-              else:
-                    board[row+1][col+1]=str(int(board[row+1][col+1])+1)
-"""
+              #  addMark("O",row+1,col+1,board) 
+                
+                if board[row-1][col] in [" ","A","B","C","D","E","F","G","H","I","M"]:
+                    board[row-1][col]=str(1)
+                else:
+                    board[row-1][col]=str(int(board[row-1][col])+1)
         #print(col)
         #print(row)
-        #newboard=[]
+        newboard=[]
     #secure_random = rand.SystemRandom()
     #res = [int(sub.split('.')[1]) for sub in numberList]
 #for when you need to print flags
@@ -162,8 +161,8 @@ gamemode=input("Are you ready?- ").lower()
 while gamemode != "yes":
     gamemode=input("Are you ready?- ").lower()
 #flag emoji https://emojipedia.org/triangular-flag/
-#:triangular_flag_on_post:
-Flags=":triangular_flag_on_post:"
+#🚩
+Flags="🚩"
 while Mine!="Q":
     correctInput = False
     #while not correctInput:
