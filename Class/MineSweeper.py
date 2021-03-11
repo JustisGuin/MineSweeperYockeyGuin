@@ -1,49 +1,6 @@
 import random as rand
-#----- FUNCTIONS -----
-def addMark(m,r,c,b):
-    #if the space is blank, add that mine
-    if b[r][c]==" ":
-        b[r][c]=m   
-        return True
-    return False
-#randomly addes the mine in
-board=[
-        ["+","1","2","3","4","5","6","7","8","9"],
-        ["1"," "," "," "," "," "," "," "," "," "],
-        ["2"," "," "," "," "," "," "," "," "," "],
-        ["3"," "," "," "," "," "," "," "," "," "],
-        ["4"," "," "," "," "," "," "," "," "," "],
-        ["5"," "," "," "," "," "," "," "," "," "],
-        ["6"," "," "," "," "," "," "," "," "," "],          #This is the board that the Mines and the numbers 
-        ["7"," "," "," "," "," "," "," "," "," "],
-        ["8"," "," "," "," "," "," "," "," "," "],
-        ["9"," "," "," "," "," "," "," "," "," "]]
-Mine="M"
-numberList=[1,2,3,4,5]
-def printBoard(b):  #todo explain print board in comments 
-        for row in range(len(b)):       #so this is saying for the row in range of the length of the board then 
-            for col in range(len(b[row])):  #for col in range of the length of the board print | else: make a space then if the row does not = the board length then print - 38 times
-                if col !=(len(b[row])-1):
-                      print(b[row][col],end=" | ")
-                else:
-                      print(b[row][col],end="\n")
-            if row !=(len(b)-1):
-                      print("-"*38)
-        print()
-for i in range (10):
-    row = rand.randint(1,9)
-    col = rand.randint(1,9)         #this is creating the Mine, row ,col and board and placing them randomly 1,9 times
-    addMark(Mine,row,col,board)
-        #print(col)
-        #print(row)
-    #secure_random = rand.SystemRandom()
-    #res = [int(sub.split('.')[1]) for sub in numberList]
-"""for i in range (10):
-    row = rand.randint(1,9)
-    col = rand.randint(1,9)
-    addMark(rand.choice(numberList),row,col,board)
-        #print(col)"""
-        #print(row)
+
+#https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20
 def title():
     print(' ▄▄       ▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄        ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄         ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄ ')
     print('▐░░▌     ▐░░▌▐░░░░░░░░░░░▌▐░░▌      ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌')
@@ -107,7 +64,7 @@ def printBoard(b):
                else:
                     board[row][col+1]=str(int(board[row][col+1])+1)
 #  this does not work "IndexError: list index out of range" 
-"""
+'''
             # N.W--> North-East   (row-1, col+1)
             if row > 0 and col > 0:
                 #Mine(row-1, col-1)
@@ -140,10 +97,23 @@ def printBoard(b):
                     board[row+1][col+1]=str(1)
               else:
                     board[row+1][col+1]=str(int(board[row+1][col+1])+1)
-"""
+'''
         #print(col)
         #print(row)
-        #newboard=[]
+userBoard=[
+        ["+","1","2","3","4","5","6","7","8","9"],
+        ["1"," "," "," "," "," "," "," "," "," "],
+        ["2"," "," "," "," "," "," "," "," "," "],
+        ["3"," "," "," "," "," "," "," "," "," "],
+        ["4"," "," "," "," "," "," "," "," "," "],
+        ["5"," "," "," "," "," "," "," "," "," "],
+        ["6"," "," "," "," "," "," "," "," "," "],          #This is the board that the Mines and the numbers 
+        ["7"," "," "," "," "," "," "," "," "," "],
+        ["8"," "," "," "," "," "," "," "," "," "],
+        ["9"," "," "," "," "," "," "," "," "," "]]
+    
+
+    
     #secure_random = rand.SystemRandom()
     #res = [int(sub.split('.')[1]) for sub in numberList]
 #for when you need to print flags
@@ -158,9 +128,6 @@ if howToPlay == "yes":
     "\nspaces to win Minesweeper.\n"
     "\The 0's on the board show there are no bomb around that square."
     "\You will pick either Flag or Step")
-gamemode=input("Are you ready?- ").lower()
-while gamemode != "yes":
-    gamemode=input("Are you ready?- ").lower()
 #flag emoji https://emojipedia.org/triangular-flag/
 #:triangular_flag_on_post:
 Flags=":triangular_flag_on_post:"
