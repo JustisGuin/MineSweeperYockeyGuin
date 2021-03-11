@@ -1,8 +1,5 @@
 import random as rand
 
-#----- Varaables -----
-numOfFlags=10
-
 
 #----- FUNCTIONS -----
 
@@ -15,7 +12,7 @@ def addMark(m,r,c,b):
     return False
 
 board=[
-        ["+","A","B","C","D","E","F","G","H","I"],
+        ["+","1","2","3","4","5","6","7","8","9"],
         ["1"," "," "," "," "," "," "," "," "," "],
         ["2"," "," "," "," "," "," "," "," "," "],
         ["3"," "," "," "," "," "," "," "," "," "],
@@ -37,71 +34,24 @@ def printBoard(b):
             if row !=(len(b)-1):
                       print("-"*38)
         print()
-
         for i in range (10):
-            n=9
             row = rand.randint(1,9)
             col = rand.randint(1,9)
             addMark(Mine,row,col,board)
-            # N -->  North        (row-1, col)
-            if row > 0:
-                #Mine(row-1, col)
-                #addMark("O",row-1,col,board)
-                if board[row-1][col] in [" ","A","B","C","D","E","F","G","H","I","M"]:
-                    board[row-1][col]=str(1)
-                else:
-                    board[row-1][col]=str(int(board[row-1][col])+1)
-            """# S -->  South        (row+1, col)           
-            if row < n-1:
-                #Mine(row+1, col)
-                #addMark("O",row+1,col,board)
-
-            # W -->  West         (row, col-1)          
-            if col > 0:
-                #Mine(row, col-1)
-                #addMark("O",row,col-1,board)
-            # E -->  East         (row, col+1)     
-            if col < n-1:
-                #Mine(row, col+1)
-               # addMark("O",row,col+1,board)    
-
-            # N.W--> North-West   (row-1, col-1)
-            if row > 0 and col > 0:
-                #Mine(row-1, col-1)
-                #addMark("O",row-1,col-1,board)
-
-            # N.W--> North-West   (row-1, col-1) 
-            if row > 0 and col < n-1:
-                #Mine(row-1, col+1)
-              #  addMark("O",row-1,col+1,board)
-
-            # S.W--> South-West   (row+1, col-1)  
-            if row < n-1 and col > 0:
-                #Mine(row+1, col-1)
-               # addMark("O",row+1,col-1,board)
-
-            # S.E--> South-East   (row+1, col+1)             
-            if row < n-1 and col < n-1:
-                #Mine(row+1, col+1)
-              #  addMark("O",row+1,col+1,board)  """
-
         #print(col)
         #print(row)
 
         newboard=[]
     #secure_random = rand.SystemRandom()
     #res = [int(sub.split('.')[1]) for sub in numberList]
+for i in range (10):
+    row = rand.randint(1,9)
+    col = rand.randint(1,9)
+    addMark(rand.choice(numberList),row,col,board)
+        #print(col)
+        #print(row)
+    
 
-
-
-
-
-#for when you need to print flags
-#print("Flags- {}".format(int(numOfFlags)))
-
-#----- RUNNING CODE -----
-
-#https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20
 def title():
     print(' ▄▄       ▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄        ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄         ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄ ')
     print('▐░░▌     ▐░░▌▐░░░░░░░░░░░▌▐░░▌      ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌')
@@ -116,6 +66,7 @@ def title():
     print(' ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀        ▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀       ▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀            ▀▀▀▀▀▀▀▀▀▀▀  ▀         ▀ ')
 title()
 
+#----- RUNNING CODE -----
 howToPlay=input("Do you want to see the instructions to play?- ").lower()
 if howToPlay == "yes":
     print("\nThe numbers on the board represent how many bombs are adjacent to a",
@@ -129,12 +80,10 @@ while gamemode != "yes":
     gamemode=input("Are you ready?- ").lower()
 
 
+
 #flag emoji https://emojipedia.org/triangular-flag/
 #🚩
-flags="🚩"
-
-print(flags)
-
+Flags="🚩"
 while Mine!="Q":
     correctInput = False
     #while not correctInput:
@@ -162,11 +111,8 @@ while Mine!="Q":
     
     else:
         correctInput=True
-
-
-
-
-
+               
+     
 
 """
 This will help with the algoritm to check 
@@ -179,4 +125,6 @@ Cell-->Current Cell (row, col)
         N.W--> North-West   (row-1, col-1) 
         S.E--> South-East   (row+1, col+1) 
         S.W--> South-West   (row+1, col-1)
+    
+
 """
