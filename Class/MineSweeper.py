@@ -1,5 +1,22 @@
 import random as rand
+board=[ 
+        ["+","A","B","C","D","E","F","G","H","I"],
+        ["A"," "," "," "," "," "," "," "," "," "],
+        ["B"," "," "," "," "," "," "," "," "," "],
+        ["C"," "," "," "," "," "," "," "," "," "],
+        ["D"," "," "," "," "," "," "," "," "," "],
+        ["E"," "," "," "," "," "," "," "," "," "],
+        ["F"," "," "," "," "," "," "," "," "," "],          #This is the board that the Mines and the numbers get placed on 
+        ["G"," "," "," "," "," "," "," "," "," "],
+        ["H"," "," "," "," "," "," "," "," "," "],
+        ["I"," "," "," "," "," "," "," "," "," "]]
 
+def addMark(m,r,c,b):
+    #if the space is blank, add that mine
+    if b[r][c]==" ":
+        b[r][c]=m   
+        return True
+    return False
 #https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20
 def title():
     print(' ▄▄       ▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄        ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄         ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄ ')
@@ -35,23 +52,27 @@ def printBoard(b):
             if row > 0:
                 #Mine(row-1, col)
                 #addMark("O",row-1,col,board)
-                if board[row-1][col] in [" ","A","B","C","D","E","F","G","H","I","M"]:
+                if board[row-1][col] in [" ","A","B","C","D","E","F","G","H","I","M","+"]:
                     board[row-1][col]=str(1)
                 else:
                     board[row-1][col]=str(int(board[row-1][col])+1)
             # S -->  South        (row+1, col)           
             if row < n-1:
-                #Mine(row+1, col)
-                #addMark("O",row+1,col,board)
-                if board[row+1][col] in [" ","A","B","C","D","E","F","G","H","I","M"]:
-                    board[row+1][col]=str(1)
-                else:
-                    board[row+1][col]=str(int(board[row+1][col])+1)
+                try:
+                    #Mine(row+1, col)
+                    #addMark("O",row+1,col,board)
+                    if board[row+1][col] in [" ","A","B","C","D","E","F","G","H","I","M","+"]:
+                        board[row+1][col]=str(1)
+                    else:
+                        board[row+1][col]=str(int(board[row+1][col])+1)
+                except:
+                    continue
             # W -->  West         (row, col-1)          
             if col > 0:
                 #Mine(row, col-1)
                 #addMark("O",row,col-1,board)
-                if board[row][col-1] in [" ","A","B","C","D","E","F","G","H","I","M"]:
+                
+                if board[row][col-1] in [" ","A","B","C","D","E","F","G","H","I","M","+"]:
                     board[row][col-1]=str(1)
                 else:
                     board[row][col-1]=str(int(board[row][col-1])+1)
@@ -59,45 +80,57 @@ def printBoard(b):
             if col < n-1:
                 #Mine(row, col+1)
                # addMark("O",row,col+1,board)
-               if board[row][col+1] in [" ","A","B","C","D","E","F","G","H","I","M"]:
+               if board[row][col+1] in [" ","A","B","C","D","E","F","G","H","I","M","+"]:
                     board[row][col+1]=str(1)
                else:
                     board[row][col+1]=str(int(board[row][col+1])+1)
 #  this does not work "IndexError: list index out of range" 
-'''
-            # N.W--> North-East   (row-1, col+1)
+             #N.W--> North-East   (row-1, col+1)
+            
             if row > 0 and col > 0:
-                #Mine(row-1, col-1)
-                #addMark("O",row-1,col-1,board)
-                if board[row-1][col+1] in [" ","A","B","C","D","E","F","G","H","I","M"]:
-                    board[row-1][col+1]=str(1)
-                else:
-                    board[row-1][col+1]=str(int(board[row-1][col+1])+1)
+                #print(row,col)
+                #print(board[row-1][col+1])
+                try:
+
+                    if board[row-1][col+1] in [" ","A","B","C","D","E","F","G","H","I","M","+"]:
+                        board[row-1][col+1]=str(1)
+                    
+                    else:
+                        board[row-1][col+1]=str(int(board[row-1][col+1])+1)
+                except:
+                    continue
             # N.W--> North-West   (row-1, col-1) 
             if row > 0 and col < n-1:
                 #Mine(row-1, col+1)
               #  addMark("O",row-1,col+1,board)
-              if board[row-1][col-1] in [" ","A","B","C","D","E","F","G","H","I","M"]:
+              if board[row-1][col-1] in [" ","A","B","C","D","E","F","G","H","I","M","+"]:
                     board[row-1][col-1]=str(1)
               else:
                     board[row-1][col-1]=str(int(board[row-1][col-1])+1)
             # S.W--> South-West   (row+1, col-1)  
             if row < n-1 and col > 0:
-                #Mine(row+1, col-1)
-               # addMark("O",row+1,col-1,board)
-               if board[row+1][col-1] in [" ","A","B","C","D","E","F","G","H","I","M"]:
-                    board[row+1][col-1]=str(1)
-               else:
-                    board[row+1][col-1]=str(int(board[row+1][col-1])+1)
+                try:
+                        #Mine(row+1, col-1)
+                    # addMark("O",row+1,col-1,board)
+                    if board[row+1][col-1] in [" ","A","B","C","D","E","F","G","H","I","M","+"]:
+                            board[row+1][col-1]=str(1)
+                    else:
+                            board[row+1][col-1]=str(int(board[row+1][col-1])+1)
+                except:
+                    continue
             # S.E--> South-East   (row+1, col+1)             
             if row < n-1 and col < n-1:
-                #Mine(row+1, col+1)
-              #  addMark("O",row+1,col+1,board)
-              if board[row+1][col+1] in [" ","A","B","C","D","E","F","G","H","I","M"]:
-                    board[row+1][col+1]=str(1)
-              else:
-                    board[row+1][col+1]=str(int(board[row+1][col+1])+1)
-'''
+                try:
+
+                        #Mine(row+1, col+1)
+                    #  addMark("O",row+1,col+1,board)
+                    if board[row+1][col+1] in [" ","A","B","C","D","E","F","G","H","I","M","+"]:
+                            board[row+1][col+1]=str(1)
+                    else:
+                            board[row+1][col+1]=str(int(board[row+1][col+1])+1)
+                except:
+                    continue
+
         #print(col)
         #print(row)
 userBoard=[
@@ -127,32 +160,26 @@ if howToPlay == "yes":
     "\ndiagonal to the square. Avoid all the bombs and expose all the empty",
     "\nspaces to win Minesweeper.\n"
     "\The 0's on the board show there are no bomb around that square."
-    "\You will pick either Flag or Step")
+    "\You will pick either Flag or Step\n"
+    "The Letter still represent numbers.")
 #flag emoji https://emojipedia.org/triangular-flag/
 #:triangular_flag_on_post:
 Flags=":triangular_flag_on_post:"
 while Mine!="Q":
     correctInput = False
     #while not correctInput:
-    print()
     printBoard(board)
     #Remeber that you need to do action if statments do if action == ui flags then create a if statment
     #do this with flag, col, row
     row=int(input("Which row? "))               #This while loop is asking for the user input 
     col=int(input("Which col? "))
-    #action=input("What action would you like to do?").lower()
-    #if action=="flag":
-        #addMark(Flags,row,col,board)
-        #print updated board make this into a class 
-    #if action=="step":
-        #this is where the algo for checking for mine goes
     if not((0<=row<=9) and (0<=col<=9)):
         print("The row and column are not correct")             #This is checking if the game if over to see if you have stepped on a  mine of if you have tried to go some where that a space has been taken
     #try to add a mark, and if you do, this is true.....
     elif board[row][col] =="M":
         print("Game Over")
         break               
-    elif not(addMark(Mine,row,col,board)):
+    elif board[row][col]!=" ":
         print("That space was already taken")
     else:
         correctInput=True
